@@ -15,5 +15,5 @@ $scriptFiles = Get-ChildItem -Path $repoRoot -Directory |
 $scriptFiles |
     ForEach-Object {
         Write-Host "Working on file $_"
-        Invoke-Pester $_
+        Invoke-Pester -Script $_
     }
