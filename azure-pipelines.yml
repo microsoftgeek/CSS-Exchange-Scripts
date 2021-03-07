@@ -11,7 +11,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
+- powershell: |
     cd .\.build
     .\PesterTesting.ps1
   displayName: "Pester Testing"
