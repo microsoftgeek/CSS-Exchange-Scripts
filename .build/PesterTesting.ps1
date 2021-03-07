@@ -2,6 +2,10 @@
 param (
 
 )
+Install-Module Pester -Force -SkipPublisherCheck
+Install-Module az.resources -scope currentuser -force -SkipPublisherCheck
+Install-Module az.accounts -Scope CurrentUser -Force -SkipPublisherCheck
+
 
 $repoRoot = Get-Item "$PSScriptRoot\.."
 
