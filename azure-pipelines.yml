@@ -13,6 +13,11 @@ steps:
 
 - pwsh: |
     cd .\.build
+    .\PesterTesting.ps1
+  displayName: "Pester Testing"
+
+- pwsh: |
+    cd .\.build
     .\CodeFormatter.ps1
   displayName: "Code Formatting Script"
 
