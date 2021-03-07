@@ -10,10 +10,15 @@ $scriptFiles = Get-ChildItem -Path $repoRoot -Directory |
     ForEach-Object { Get-ChildItem -Path $_.FullName *.ps1 -Recurse } |
     Where-Object { $_.Name.Contains(".Tests.ps1") }
     Sort-Object Name |
-    ForEach-Object { $_.FullName }
+    ForEach-Object { return $_.FullName }
 
 $scriptFiles |
     ForEach-Object {
-        Write-Host "Working on file $_"
-        Invoke-Pester -Script $_
+        if ($null -ne $_.FullName) {
+            Write-Host "Working on file $($_.FullName)"
+            Invoke-Pester -Script $_.FullName
+        } else {
+            Write-Host "Working on file $_"
+            Invoke-Pester -Script $_
+        }
     }
