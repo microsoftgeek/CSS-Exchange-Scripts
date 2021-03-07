@@ -6,7 +6,11 @@ $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 $parent = $here.Replace("\Tests", "")
 . "$parent\$sut" -PesterLoad
 
+Write-Host ("running in pester test")
+
 $sr = "$parent\$sut"
+
+Write-Host "Script $sr"
 
 Describe "Testing SetupLogReviewer" {
 
